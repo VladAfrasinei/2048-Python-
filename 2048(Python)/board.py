@@ -24,20 +24,11 @@ def afisareMatrice(board):
 def returnareMatrice(board):
     return board
 
-def returnMatrice():
-    matrice = []
-    for i in range(0,4):
-        matrice.append([])
-        for j in range(0,4):
-            matrice[i].append(text_var[i][j].get())
 
-
-
-
-
-board = [[1, 2, 3, 4],
-         [2, 3, 4, 5],
-         [3, 4, 5, 6],
-         [4, 5, 6, 7]]
+board = [[1, 2, 3, 4,1],
+         [2, 3, 4, 5,1],
+         [3, 4, 5, 6,1],
+         [4, 5, 6, 7,1],
+         [1,1,1,1,1]]
 initializare(board)
 afisareMatrice(board)
