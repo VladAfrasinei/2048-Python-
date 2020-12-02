@@ -1,12 +1,2 @@
-ourMessage ='Reguli ale jocului:\n' \
-            '1. Pornind de la 2 valori(de 2) in 2 casute random, folosind valori de acelasi fel trebuie sa ajungeti la 2048.\n' \
-            '2. Jocul se termina atunci cand nu mai aveti nicio casuta libera, cand nu mai puteti face nicio miscare sau cand ati ajuns la 2048.\n' \
-            '3. Este un joc pentru toate varstele care necesita atentie si o strategie buna.\n' \
-            '4.Pentru a incepe jocul apasati Play.\n' \
-            '5.Pentru a inchide apasati X.\n' \
-            '6. In timpul jocului veti avea un score live, care inseamna toate numerele de pe tabela adunate.\n' \
-            '7. Daca am chef voi implementa si un clasament.\n'
-messageVar = tk.Message(m, text = ourMessage)
-messageVar.config(bg='lightgreen')
-messageVar.pack()
-
+http://www.science.smith.edu/dftwiki/index.php/File:TkInterColorCharts.png pt culori
+https://www.youtube.com/watch?v=b4XP2IcI-Bg&ab_channel=Kite pentru impartirea in cell-uri

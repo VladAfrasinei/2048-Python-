@@ -16,7 +16,7 @@ m=tk.Tk()
 #Dam titlu jocului
 m.title('2048')
 #Setam marimea tablei
-m.geometry("650x650")
+m.geometry("700x800")
 
 topFrame=tk.Frame(master=m, height=100, width=650)
 topFrame.pack()
@@ -26,17 +26,42 @@ topFrame.propagate(0)
 bottomFrame=tk.Frame(m)
 bottomFrame.pack()
 
-button1=tk.Button(topFrame, text="Play", justify="center", fg="red", width=15, bg="yellow")
-button1.pack()
+#button1=tk.Button(topFrame, text="Play", justify="center", fg="red", width=15, bg="yellow")
+#button1.pack()
+
+values=[0,2,4,8,16,32,64,128,256,512,1024,2048]
+colors=["snow","gainsboro","papaya whip","peach puff","light salmon","dark orange","red","yellow","yellow2","yellow3","yellow4","gold"]
+
+def returnColor(x):
+    for i in range(0,12):
+        if(x==values[i]):
+            return colors[i]
+
+def returnScor():
+    s=0
+    for i in range (0,4):
+        for j in range(0,4):
+            s=s+board[i][j]
+    return s
+
+def InterfataScor(thisFrame, board):
+
+    tk.Label(thisFrame,text="Score",font = "Helvetica 30 bold").grid(row=0)
+    scor=returnScor()
+    tk.Label(thisFrame, text=str(scor),font = "Helvetica 30 bold").grid(row=1)
 
 def InterfataMatrice(thisFrame,board):
     cells=[]
     for i in range(0, 4):
         row=[]
         for j in range(0,4):
-            cell_frame = tk.Frame(thisFrame, width=150, height=125,bg="red")
+            cell_frame = tk.Frame(thisFrame, width=150, height=150,bg="grey64")
             cell_frame.grid(row=i, column=j, padx=0.5, pady=0.5)
-            cell_number=tk.Label(thisFrame,bg="yellow",text=str(board[i][j]),font = "Helvetica 50 bold")
+            culoare=returnColor(board[i][j])
+            valoareText=str(board[i][j])
+            if board[i][j]==0:
+                valoareText=""
+            cell_number=tk.Label(thisFrame,bg=culoare,text=valoareText,font = "Helvetica 50 bold", height=2, width=4, borderwidth=1, relief="solid")
             cell_number.grid(row=i,column=j)
 
 def PunereElementRandomInMatrice():
@@ -74,6 +99,7 @@ def leftKey(event):
     PunereElementRandomInMatrice()
     b.afisareMatrice(board)
     InterfataMatrice(bottomFrame,board)
+    InterfataScor(topFrame, board)
 
 
 def rightKey(event):
@@ -97,6 +123,7 @@ def rightKey(event):
     PunereElementRandomInMatrice()
     b.afisareMatrice(board)
     InterfataMatrice(bottomFrame, board)
+    InterfataScor(topFrame, board)
 
 def upKey(event):
     for i in range(1, 4):
@@ -119,6 +146,7 @@ def upKey(event):
     PunereElementRandomInMatrice()
     b.afisareMatrice(board)
     InterfataMatrice(bottomFrame, board)
+    InterfataScor(topFrame, board)
 
 def downKey(event):
     for i in range(2, -1, -1):
@@ -141,9 +169,11 @@ def downKey(event):
     PunereElementRandomInMatrice()
     b.afisareMatrice(board)
     InterfataMatrice(bottomFrame, board)
+    InterfataScor(topFrame, board)
 
 
 InterfataMatrice(bottomFrame,board)
+InterfataScor(topFrame,board)
 m.bind('<Left>', leftKey)
 m.bind('<Right>', rightKey)
 m.bind('<Up>', upKey)
