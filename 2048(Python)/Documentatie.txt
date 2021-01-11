@@ -1,2 +1,16 @@
 http://www.science.smith.edu/dftwiki/index.php/File:TkInterColorCharts.png pt culori
+Adica am luat codul pt fiecare culoare(Exemplu:"snow")
 https://www.youtube.com/watch?v=b4XP2IcI-Bg&ab_channel=Kite pentru impartirea in cell-uri
+De aici mai exact in aceasta functie:
+def InterfataMatrice(thisFrame,board):
+    for i in range(0, 4):
+        for j in range(0,4):
+            *** cell_frame = tk.Frame(thisFrame, width=150, height=150,bg="grey64")
+            *** cell_frame.grid(row=i, column=j, padx=0.5, pady=0.5)
+            culoare=returnColor(board[i][j])
+            valoareText=str(board[i][j])
+            if board[i][j]==0:
+                valoareText=""
+            *** cell_number=tk.Label(thisFrame,bg=culoare,text=valoareText,font = "Helvetica 50 bold", height=2, width=4, borderwidth=1, relief="solid")
+            *** cell_number.grid(row=i,column=j)
+Au fost luate randurile cu ***(adica 4 randuri) in fata la care au fost puse valorile mele

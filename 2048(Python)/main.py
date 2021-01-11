@@ -57,9 +57,7 @@ def InterfataScor(thisFrame, board):
     tk.Label(thisFrame, text=str(finalScore),font = "Helvetica 30 bold").grid(row=1)
 
 def InterfataMatrice(thisFrame,board):
-    cells=[]
     for i in range(0, 4):
-        row=[]
         for j in range(0,4):
             cell_frame = tk.Frame(thisFrame, width=150, height=150,bg="grey64")
             cell_frame.grid(row=i, column=j, padx=0.5, pady=0.5)
